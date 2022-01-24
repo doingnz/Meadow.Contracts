@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Meadow.Units;
+using System;
 
 namespace Meadow.Hardware
 {
@@ -24,9 +25,9 @@ namespace Meadow.Hardware
         /// <returns></returns>
         IAnalogInputPort CreateAnalogInputPort(
             IPin pin,
-            int sampleCount = 5,
-            int sampleIntervalMs = 40,
-            float voltageReference = DefaultA2DReferenceVoltage
+            int sampleCount,
+            TimeSpan sampleInterval,
+            Voltage voltageReference
         );
     }
 }

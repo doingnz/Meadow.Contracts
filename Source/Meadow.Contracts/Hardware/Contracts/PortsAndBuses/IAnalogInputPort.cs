@@ -69,7 +69,7 @@ namespace Meadow.Hardware
         /// subscribers getting notified. Use the `readIntervalDuration` parameter
         /// to specify how often events and notifications are raised/sent.
         /// </summary>
-        void StartUpdating(TimeSpan? updateInterval);
+        void StartUpdating(TimeSpan? updateInterval = null);
 
         /// <summary>
         /// Stops sampling the analog port.
