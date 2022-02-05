@@ -10,6 +10,11 @@
         /// <summary>
         /// F7 Micro version 2 (revisions a -> c).
         /// </summary>
-        F7MicroV2 = 2
+        F7MicroV2 = 2,
+
+        /// <summary>
+        /// F7 Core Compute Module.
+        /// </summary>
+        F7CoreCompute = 3
     }
 }
