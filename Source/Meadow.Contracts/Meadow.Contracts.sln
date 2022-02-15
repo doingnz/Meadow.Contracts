@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meadow.Contracts", "Meadow.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EE9F7223-E429-41C1-BF9E-E5BD8FC2308D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meadow.Units", "..\..\..\Meadow.Units\Source\Meadow.Units\Meadow.Units.csproj", "{C5578B4E-75A4-44C9-90E8-7713B128F721}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,18 +19,9 @@ Global
 		{8F563423-F926-4C94-9BBD-C76FA3D062EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F563423-F926-4C94-9BBD-C76FA3D062EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F563423-F926-4C94-9BBD-C76FA3D062EA}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{C5578B4E-75A4-44C9-90E8-7713B128F721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5578B4E-75A4-44C9-90E8-7713B128F721}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5578B4E-75A4-44C9-90E8-7713B128F721}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{C5578B4E-75A4-44C9-90E8-7713B128F721}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5578B4E-75A4-44C9-90E8-7713B128F721}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5578B4E-75A4-44C9-90E8-7713B128F721}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{C5578B4E-75A4-44C9-90E8-7713B128F721} = {EE9F7223-E429-41C1-BF9E-E5BD8FC2308D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D25074E-B941-4A4E-818D-E3CBC59B44AB}

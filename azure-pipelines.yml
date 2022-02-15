@@ -2,7 +2,7 @@
 # Reference: https://aka.ms/yaml
 
 trigger:
-  - develop
+  - staging
 
 variables:
   solution: "**/Meadow.Contracts.sln"
