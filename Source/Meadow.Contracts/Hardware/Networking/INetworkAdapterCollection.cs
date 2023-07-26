@@ -6,8 +6,24 @@ namespace Meadow.Hardware
 {
     public interface INetworkAdapterCollection : IEnumerable<INetworkAdapter>
     {
+        /// <summary>
+        /// Event raised when a network is connected on any adapter
+        /// </summary>
+        event NetworkConnectionHandler NetworkConnected;
+        /// <summary>
+        /// Event raised when a network is disconnected on any adapter
+        /// </summary>
+        event NetworkDisconnectionHandler NetworkDisconnected;
+
+        /// <summary>
+        /// Gets the number of netowrk adapters in the collection
+        /// </summary>
         public int Count => this.Count();
 
+        /// <summary>
+        /// Retrieves an INEtworkAdapter from the collection by index
+        /// </summary>
+        /// <param name="index">The index of the item in the collection</param>
         INetworkAdapter this[int index] { get; }
 
         /// <summary>
@@ -20,6 +36,10 @@ namespace Meadow.Hardware
             return this.OfType<T>().FirstOrDefault();
         }
 
+        /// <summary>
+        /// Refreshes the collection of Adapters
+        /// </summary>
+        /// <returns></returns>
         Task Refresh();
     }
 }
