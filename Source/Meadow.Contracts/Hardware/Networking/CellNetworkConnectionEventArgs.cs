@@ -1,25 +1,20 @@
-﻿using Meadow.Gateway.WiFi;
-using System;
-using System.Net;
-using System.Net.NetworkInformation;
+﻿using System.Net;
 
-namespace Meadow.Hardware
+namespace Meadow.Hardware;
+
+/// <summary>
+/// Data relating to a Cell connection.
+/// </summary>
+public class CellNetworkConnectionEventArgs : NetworkConnectionEventArgs
 {
     /// <summary>
-    /// Data relating to a Cell connection.
+    /// Construct a CellNetworkConnectionEventArgs request.
     /// </summary>
-    public class CellNetworkConnectionEventArgs : NetworkConnectionEventArgs
+    /// <param name="ipAddress">IP address of the device.</param>
+    /// <param name="subnet">Subnet of the device.</param>
+    /// <param name="gateway">Gateway address of the device.</param>
+    public CellNetworkConnectionEventArgs(IPAddress ipAddress, IPAddress subnet, IPAddress gateway)
+        : base(ipAddress, subnet, gateway)
     {
-        
-        /// <summary>
-        /// Construct a CellNetworkConnectionEventArgs request.
-        /// </summary>
-        /// <param name="ipAddress">IP address of the device.</param>
-        /// <param name="subnet">Subnet of the device.</param>
-        /// <param name="gateway">Gateway address of the device.</param>
-        public CellNetworkConnectionEventArgs(IPAddress ipAddress, IPAddress subnet, IPAddress gateway)
-            : base(ipAddress, subnet, gateway)
-        {
-        }
     }
 }
