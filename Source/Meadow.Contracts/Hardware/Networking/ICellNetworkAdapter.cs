@@ -5,4 +5,7 @@
 /// </summary>
 public interface ICellNetworkAdapter : INetworkAdapter
 {
+    string Imei { get; }
+    string Csq { get; }
+    string PppdOutput { get; }
 }
