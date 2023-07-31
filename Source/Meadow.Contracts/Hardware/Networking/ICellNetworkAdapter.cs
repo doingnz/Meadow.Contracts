@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿﻿using System.Collections.Generic;
 using Meadow.Networking;
 namespace Meadow.Hardware;
 
@@ -9,7 +9,7 @@ public interface ICellNetworkAdapter : INetworkAdapter
 {
     string Imei { get; }
     string Csq { get; }
-    string PppdOutput { get; }
+    string AtCmdsOutput { get; }
 
     List <CellNetwork> Scan();
 }
