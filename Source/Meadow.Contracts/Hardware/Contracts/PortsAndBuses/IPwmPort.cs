@@ -12,7 +12,14 @@ namespace Meadow.Hardware
         /// </summary>
         new IPwmChannelInfo Channel { get; }
 
+        /// <summary>
+        /// Starts the PWM square wave output
+        /// </summary>
         void Start();
+
+        /// <summary>
+        /// Stops the PWM square wave output
+        /// </summary>
         void Stop();
 
         /// <summary>

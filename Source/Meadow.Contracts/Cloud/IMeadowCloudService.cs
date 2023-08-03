@@ -22,5 +22,11 @@ public interface IMeadowCloudService
     /// </summary>
     /// <param name="cloudLog">The log entry to send</param>
     Task<bool> SendLog(CloudLog cloudLog);
+
+    /// <summary>
+    /// Sends a CloudEvent to the Meadow.Cloud service
+    /// </summary>
+    /// <param name="cloudEvent"></param>
+    /// <returns></returns>
     Task<bool> SendEvent(CloudEvent cloudEvent);
 }

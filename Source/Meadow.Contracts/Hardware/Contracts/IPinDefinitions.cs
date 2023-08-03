@@ -22,6 +22,9 @@ namespace Meadow.Hardware
                 || string.Compare($"{p.Key}", name, true) == 0);
         }
 
+        /// <summary>
+        /// Gets or sets the IPinController associated with the IPins
+        /// </summary>
         IPinController Controller { get; set; }
     }
 }

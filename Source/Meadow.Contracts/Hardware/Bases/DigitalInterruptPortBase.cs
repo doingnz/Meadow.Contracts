@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 namespace Meadow.Hardware;
 
+/// <summary>
+/// A base class for IDigitalInterruptPort implementations
+/// </summary>
 public abstract class DigitalInterruptPortBase : DigitalInputPortBase, IDigitalInterruptPort
 {
-    private List<Unsubscriber> _unsubscribers = new List<Unsubscriber>();
+    private readonly List<Unsubscriber> _unsubscribers = new();
 
     /// <summary>
     /// Occurs when the state is changed. To enable this, set the InterruptMode at construction
@@ -88,8 +91,8 @@ public abstract class DigitalInterruptPortBase : DigitalInputPortBase, IDigitalI
 
     private class Unsubscriber : IDisposable
     {
-        private List<IObserver<IChangeResult<DigitalState>>> _observers;
-        private IObserver<IChangeResult<DigitalState>> _observer;
+        private readonly List<IObserver<IChangeResult<DigitalState>>> _observers;
+        private readonly IObserver<IChangeResult<DigitalState>> _observer;
 
         public Unsubscriber(List<IObserver<IChangeResult<DigitalState>>> observers, IObserver<IChangeResult<DigitalState>> observer)
         {

@@ -8,6 +8,9 @@ namespace Meadow.Hardware
     /// </summary>
     public interface IPin : IEquatable<IPin>
     {
+        /// <summary>
+        /// The IPinController associated with this IPin
+        /// </summary>
         public IPinController Controller { get; }
 
         /// <summary>

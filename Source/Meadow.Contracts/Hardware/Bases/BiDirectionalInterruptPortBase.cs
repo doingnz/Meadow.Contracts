@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 namespace Meadow.Hardware;
 
+/// <summary>
+/// A base class for IBiDirectionalInterruptPort implementations
+/// </summary>
 public abstract class BiDirectionalInterruptPortBase : BiDirectionalPortBase, IBiDirectionalInterruptPort, IDisposable
 {
-    private List<Unsubscriber> _unsubscribers = new List<Unsubscriber>();
+    private readonly List<Unsubscriber> _unsubscribers = new();
 
     /// <summary>
     /// Event raised when the port value changes
@@ -122,8 +125,8 @@ public abstract class BiDirectionalInterruptPortBase : BiDirectionalPortBase, IB
 
     private class Unsubscriber : IDisposable
     {
-        private List<IObserver<IChangeResult<DigitalState>>> _observers;
-        private IObserver<IChangeResult<DigitalState>> _observer;
+        private readonly List<IObserver<IChangeResult<DigitalState>>> _observers;
+        private readonly IObserver<IChangeResult<DigitalState>> _observer;
 
         public Unsubscriber(List<IObserver<IChangeResult<DigitalState>>> observers, IObserver<IChangeResult<DigitalState>> observer)
         {

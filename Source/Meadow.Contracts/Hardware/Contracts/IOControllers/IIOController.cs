@@ -16,6 +16,9 @@
         // types of the interface, e.g.; `IF7MicroPinout : IPinDefinitions`
         // then change this to remove the generic `<T> where T : IPinDefinitions`
         //IPinDefinitions Pins { get; protected set; }
+        /// <summary>
+        /// Gets the Controller's IPinDefinitions
+        /// </summary>
         T Pins { get; }
     }
 }
