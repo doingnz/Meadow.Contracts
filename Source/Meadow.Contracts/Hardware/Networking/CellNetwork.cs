@@ -8,7 +8,7 @@ public record CellNetwork
     /// <summary>
     /// Gets or set the network status
     /// </summary>
-    public string Status { get; set; } = default!;
+    public CellNetworkStatus Status { get; set; } = default!;
     /// <summary>
     /// Gets or set the network name
     /// </summary>
@@ -24,5 +24,5 @@ public record CellNetwork
     /// <summary>
     /// Gets or set the network mode
     /// </summary>
-    public string Mode { get; set; } = default!;
+    public CellNetworkMode Mode { get; set; } = default!;
 }

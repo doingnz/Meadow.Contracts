@@ -1,5 +1,4 @@
 ﻿using Meadow.Networking;
-using System.Collections.Generic;
 namespace Meadow.Hardware;
 
 /// <summary>
@@ -24,5 +23,5 @@ public interface ICellNetworkAdapter : INetworkAdapter
     /// Scans for networks the Adapter detects
     /// </summary>
     /// <returns>A list of CellNetworks</returns>
-    List<CellNetwork> Scan();
+    CellNetwork[] Scan();
 }
