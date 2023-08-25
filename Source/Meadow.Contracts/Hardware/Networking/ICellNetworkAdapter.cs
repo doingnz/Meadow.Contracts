@@ -24,4 +24,9 @@ public interface ICellNetworkAdapter : INetworkAdapter
     /// </summary>
     /// <returns>A list of CellNetworks</returns>
     CellNetwork[] Scan();
+    
+    /// <summary>
+    /// Get the signal quality
+    /// </summary>
+    double GetSignalQuality();
 }
