@@ -35,21 +35,21 @@ public enum CellNetworkState
     /// <summary>
     /// Resume Cell
     /// </summary>
-    CellResume = 0,
+    Resumed = 0,
     /// <summary>
-    /// Pause Cell 
+    /// Paused Cell 
     /// </summary>
-    CellPause = 1,
+    Paused = 1,
     /// <summary>
-    /// Execute AT command for GPS location
+    /// Tracking GPS location
     /// </summary>
-    CellGPS = 2,
+    TrackingGPSLocation = 2,
     /// <summary>
-    /// Execute AT command for Signal Quality
+    /// Fetching signal quality
     /// </summary>
-    CellSignalQuality = 3,
+    FetchingSignalQuality = 3,
     /// <summary>
-    /// Execute AT command for Scanner Network
+    /// Execute network scan
     /// </summary>
-    CellScan = 4,
+    ScanningNetworks = 4,
 };
