@@ -29,4 +29,9 @@ public interface ICellNetworkAdapter : INetworkAdapter
     /// Get the signal quality
     /// </summary>
     double GetSignalQuality();
+
+    /// <summary>
+    /// Get the GPS location
+    /// </summary>
+    string GetGpsLocation();
 }
