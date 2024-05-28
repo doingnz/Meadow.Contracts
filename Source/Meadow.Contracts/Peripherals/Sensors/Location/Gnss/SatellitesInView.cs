@@ -5,13 +5,13 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss;
 /// <summary>
 /// Represents information about the satellites in view in a GNSS receiver.
 /// </summary>
-public class SatellitesInView : IGnssResult
+public struct SatellitesInView : IGnssResult
 {
     /// <summary>
     /// Gets or sets the Talker ID associated with the data, which describes the system in use.
     /// The default value is "GP".
     /// </summary>
-    public string TalkerID { get; set; } = "GP";
+    public string TalkerID { get; set; }
 
     /// <summary>
     /// Gets the full name associated with the TalkerID via the `KnownTalkerIDs` property of the Lookups class.
@@ -21,22 +21,23 @@ public class SatellitesInView : IGnssResult
         get
         {
             string name = Lookups.KnownTalkerIDs[TalkerID];
-            return (name != null) ? name : "";
+            return name ?? "";
         }
     }
 
     /// <summary>
     /// Gets the array of Satellite objects representing the satellites in view.
     /// </summary>
-    public Satellite[] Satellites { get; protected set; }
+    public Satellite[] Satellites { get; set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="SatellitesInView"/> class.
+    /// Initializes a new instance of the <see cref="SatellitesInView"/> struct.
     /// </summary>
     /// <param name="satellites">The array of Satellite objects representing the satellites in view.</param>
     public SatellitesInView(Satellite[] satellites)
     {
-        this.Satellites = satellites;
+        TalkerID = "GP";
+        Satellites = satellites;
     }
 
     /// <summary>
@@ -45,7 +46,7 @@ public class SatellitesInView : IGnssResult
     /// <returns>A multiline string representation of the SatellitesInView object.</returns>
     public override string ToString()
     {
-        StringBuilder outString = new StringBuilder();
+        StringBuilder outString = new();
 
         outString.Append("SatellitesInView: {\r\n");
         outString.Append($"\tTalker ID: {TalkerID}, talker name: {TalkerSystemName}\r\n");

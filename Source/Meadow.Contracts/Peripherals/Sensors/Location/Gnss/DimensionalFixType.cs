@@ -1,6 +1,5 @@
 ﻿namespace Meadow.Peripherals.Sensors.Location.Gnss;
 
-// TODO: Should this be a struct with fields?
 /// <summary>
 /// Dimensional type of the fix.
 /// </summary>

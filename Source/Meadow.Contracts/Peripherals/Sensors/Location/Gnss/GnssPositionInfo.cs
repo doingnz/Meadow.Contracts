@@ -3,11 +3,10 @@ using System.Text;
 
 namespace Meadow.Peripherals.Sensors.Location.Gnss;
 
-// TODO: Should this be a struct with fields?
 /// <summary>
-/// Represents a GNSS/GPS position reading.
+/// Represents a GNSS/GPS position reading
 /// </summary>
-public class GnssPositionInfo : IGnssResult
+public struct GnssPositionInfo : IGnssResult
 {
     /// <summary>
     /// The first two letters (after the starting delimiter) comprise the
@@ -16,7 +15,7 @@ public class GnssPositionInfo : IGnssResult
     ///
     /// Default value is "GP".
     /// </summary>
-    public string TalkerID { get; set; } = "GP";
+    public string TalkerID { get; set; }
 
     /// <summary>
     /// Retrieves the full name associated with the TalkerID via the
@@ -46,27 +45,25 @@ public class GnssPositionInfo : IGnssResult
     /// </summary>
     public decimal? SpeedInKnots { get; set; }
 
-    //NOTE: pulled from PositionCourseAndTime
     /// <summary>
     /// Course in degrees (true heading).
     /// </summary>
     public decimal? CourseHeading { get; set; }
 
-    //NOTE: pulled from PositionCourseAndTime
     /// <summary>
     /// Magnetic variation.
     /// </summary>
-    public CardinalDirection MagneticVariation { get; set; } = CardinalDirection.Unknown;
+    public CardinalDirection MagneticVariation { get; set; }
 
     /// <summary>
     /// Global position
     /// </summary>
-    public SphericalPositionInfo? Position { get; set; } = new SphericalPositionInfo();
+    public SphericalPositionInfo? Position { get; set; }
 
     /// <summary>
     /// Quality of the fix.
     /// </summary>
-    public FixType? FixQuality { get; set; } = null; //FixType.Invalid;
+    public FixType? FixQuality { get; set; }
 
     /// <summary>
     /// Number of satellites used to generate the positional information.
@@ -79,19 +76,29 @@ public class GnssPositionInfo : IGnssResult
     public decimal? HorizontalDilutionOfPrecision { get; set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="GnssPositionInfo"/> class.
+    /// Initializes a new instance of the <see cref="GnssPositionInfo"/> struct.
     /// </summary>
     public GnssPositionInfo()
     {
+        TalkerID = "GP";
+        TimeOfReading = null;
+        Valid = false;
+        SpeedInKnots = null;
+        CourseHeading = null;
+        MagneticVariation = CardinalDirection.Unknown;
+        Position = new SphericalPositionInfo();
+        FixQuality = null;
+        NumberOfSatellites = null;
+        HorizontalDilutionOfPrecision = null;
     }
 
     /// <summary>
-    /// Returns a formatted string representing the <see cref="GnssPositionInfo"/> object.
+    /// Returns a formatted string representing the <see cref="GnssPositionInfo"/> struct.
     /// </summary>
-    /// <returns>A formatted string representing the <see cref="GnssPositionInfo"/> object.</returns>
+    /// <returns>A formatted string representing the <see cref="GnssPositionInfo"/> struct.</returns>
     public override string ToString()
     {
-        StringBuilder outString = new StringBuilder();
+        StringBuilder outString = new();
 
         outString.Append("GnssPositionInfo: {\r\n");
         outString.Append($"\tTalker ID: {TalkerID}, talker name: {TalkerSystemName}\r\n");

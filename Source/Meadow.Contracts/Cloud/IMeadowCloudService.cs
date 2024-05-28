@@ -31,6 +31,11 @@ public interface IMeadowCloudService
     CloudConnectionState ConnectionState { get; }
 
     /// <summary>
+    /// Gets the current number of items to be sent.
+    /// </summary>
+    int QueueCount { get ; } 
+    
+    /// <summary>
     /// Sends a log message to the Meadow.Cloud service
     /// </summary>
     /// <param name="cloudLog">The log entry to send</param>

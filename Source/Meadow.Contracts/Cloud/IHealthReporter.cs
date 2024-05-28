@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 
 namespace Meadow.Cloud;
@@ -18,4 +19,20 @@ public interface IHealthReporter
     /// </summary>
     /// <returns></returns>
     Task Send();
+
+    /// <summary>
+    /// Add a custom health metric.
+    /// </summary>
+    /// <param name="name">Metric name.</param>
+    /// <param name="func">Function to calculate metric value.</param>
+    /// <returns></returns>
+    bool AddMetric(string name, Func<object> func);
+    
+    /// <summary>
+    /// Add a custom health metric.
+    /// </summary>
+    /// <param name="name">Metric name.</param>
+    /// <param name="func">Function to calculate the metric value.</param>
+    /// <returns></returns>
+    bool AddMetric(string name, Func<Task<object>> func);
 }

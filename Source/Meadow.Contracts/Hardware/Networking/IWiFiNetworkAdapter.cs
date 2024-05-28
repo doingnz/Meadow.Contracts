@@ -142,7 +142,16 @@ public interface IWiFiNetworkAdapter : IWirelessNetworkAdapter
     /// Connect to the default access point.
     /// </summary>
     /// <remarks>The access point credentials should be stored in the coprocessor memory.</remarks>
-    void ConnectToDefaultAccessPoint();
+    public Task ConnectToDefaultAccessPoint()
+    {
+        return ConnectToDefaultAccessPoint(TimeSpan.FromSeconds(90), CancellationToken.None);
+    }
+
+    /// <summary>
+    /// Connect to the default access point.
+    /// </summary>
+    /// <remarks>The access point credentials should be stored in the coprocessor memory.</remarks>
+    Task ConnectToDefaultAccessPoint(TimeSpan timeout, CancellationToken token);
 
     /// <summary>
     /// Removed any stored access point information from the coprocessor memory.

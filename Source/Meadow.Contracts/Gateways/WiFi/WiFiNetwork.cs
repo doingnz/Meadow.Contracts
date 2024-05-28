@@ -6,7 +6,7 @@ namespace Meadow.Gateway.WiFi;
 /// <summary>
 /// Represents a WiFi network.
 /// </summary>
-public class WifiNetwork
+public class WifiNetwork : IEquatable<WifiNetwork>
 {
     /// <summary>
     /// Name of the network
@@ -118,5 +118,11 @@ public class WifiNetwork
         ChannelCenterFrequency = channelFreq;
         Protocol = protocol;
         SignalDbStrength = signalDbStrength;
+    }
+
+    /// <inheritdoc/>
+    public bool Equals(WifiNetwork other)
+    {
+        return this.Bssid.Equals(other.Bssid);
     }
 }
