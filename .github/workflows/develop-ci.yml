@@ -29,6 +29,8 @@ jobs:
 
     - name: Checkout Meadow.Contracts
       uses: actions/checkout@v3
+      with:
+        path: Meadow.Contracts
     
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
@@ -37,4 +39,4 @@ jobs:
           7.0.x
     
     - name: Build Meadow.Contracts
-      run: dotnet build -c Release Source/Meadow.Contracts/Meadow.Contracts.sln
+      run: dotnet build -c Release Meadow.Contracts/Source/Meadow.Contracts/Meadow.Contracts.sln
