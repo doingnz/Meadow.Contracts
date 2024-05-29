@@ -15,12 +15,12 @@ public class NetworkDisconnectionEventArgs : EventArgs
     /// <summary>
     /// Disconnect reason
     /// </summary>
-    public string Reason { get; }
+    public NetworkDisconnectReason Reason { get; }
 
     /// <summary>
     /// Construct a NetworkDisconnectionEventArgs object.
     /// </summary>
-    public NetworkDisconnectionEventArgs(string reason)
+    public NetworkDisconnectionEventArgs(NetworkDisconnectReason reason)
     {
         When = DateTime.UtcNow;
         Reason = reason;

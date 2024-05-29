@@ -3,11 +3,10 @@ using System.Text;
 
 namespace Meadow.Peripherals.Sensors.Location.Gnss;
 
-// TODO: Should this be a struct with fields?
 /// <summary>
 /// Active satellite information (GSA message information).
 /// </summary>
-public class ActiveSatellites : IGnssResult
+public struct ActiveSatellites : IGnssResult
 {
     /// <summary>
     /// The first two letters (after the starting delimiter) comprise the
@@ -16,7 +15,7 @@ public class ActiveSatellites : IGnssResult
     ///
     /// Default value is "GP".
     /// </summary>
-    public string TalkerID { get; set; } = "GP";
+    public string TalkerID { get; set; }
 
     /// <summary>
     /// Retrieves the full name associated with the TalkerID via the
@@ -67,12 +66,27 @@ public class ActiveSatellites : IGnssResult
     public decimal VerticalDilutionOfPrecision { get; set; }
 
     /// <summary>
-    /// Returns a formatted string representing the <see cref="ActiveSatellites"/> object.
+    /// Initializes a new instance of the <see cref="ActiveSatellites"/> struct.
     /// </summary>
-    /// <returns>A formatted string representing the <see cref="ActiveSatellites"/> object.</returns>
+    public ActiveSatellites()
+    {
+        TalkerID = "GP";
+        TimeOfReading = default;
+        Dimensions = DimensionalFixType.None;
+        SatelliteSelection = ActiveSatelliteSelection.Automatic;
+        SatellitesUsedForFix = null;
+        DilutionOfPrecision = 0m;
+        HorizontalDilutionOfPrecision = 0m;
+        VerticalDilutionOfPrecision = 0m;
+    }
+
+    /// <summary>
+    /// Returns a formatted string representing the <see cref="ActiveSatellites"/> struct.
+    /// </summary>
+    /// <returns>A formatted string representing the <see cref="ActiveSatellites"/> struct.</returns>
     public override string ToString()
     {
-        StringBuilder outString = new StringBuilder();
+        StringBuilder outString = new();
 
         outString.Append("Active Satellites: {\r\n");
         outString.Append($"\tTalker ID: {TalkerID}, talker name: {TalkerSystemName}\r\n");
@@ -93,5 +107,4 @@ public class ActiveSatellites : IGnssResult
 
         return outString.ToString();
     }
-
 }

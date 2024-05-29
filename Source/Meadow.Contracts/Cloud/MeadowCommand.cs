@@ -11,6 +11,16 @@ public class MeadowCommand
     /// <summary>
     /// Initializes a new instance of the <see cref="MeadowCommand"/> class.
     /// </summary>
+    /// <remarks>Needed for serialization</remarks>
+    public MeadowCommand()
+    {
+        CommandName = string.Empty;
+        Arguments = new Dictionary<string, object>();
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MeadowCommand"/> class.
+    /// </summary>
     /// <param name="commandName">The name of the command to execute.</param>
     /// <param name="arguments">The arguments of the command.</param>
     /// <exception cref="ArgumentException">Thrown if <paramref name="commandName"/> is null, empty or whitespace.</exception>

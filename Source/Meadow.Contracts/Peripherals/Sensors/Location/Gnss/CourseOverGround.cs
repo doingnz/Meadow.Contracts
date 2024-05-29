@@ -3,11 +3,10 @@ using System.Text;
 
 namespace Meadow.Peripherals.Sensors.Location.Gnss;
 
-// TODO: Should this be a struct with fields?
 /// <summary>
 /// Decoded data for the VTG - Course over ground and ground speed messages.
 /// </summary>
-public class CourseOverGround : IGnssResult
+public struct CourseOverGround : IGnssResult
 {
     /// <summary>
     /// The first two letters (after the starting delimiter) comprise the
@@ -16,7 +15,7 @@ public class CourseOverGround : IGnssResult
     ///
     /// Default value is "GP".
     /// </summary>
-    public string TalkerID { get; set; } = "GP";
+    public string TalkerID { get; set; }
 
     /// <summary>
     /// Retrieves the full name associated with the TalkerID via the
@@ -57,12 +56,25 @@ public class CourseOverGround : IGnssResult
     public decimal Kph { get; set; }
 
     /// <summary>
-    /// Returns a formatted string representing the <see cref="CourseOverGround"/> object.
+    /// Initializes a new instance of the <see cref="CourseOverGround"/> struct.
     /// </summary>
-    /// <returns>A formatted string representing the <see cref="CourseOverGround"/> object.</returns>
+    public CourseOverGround()
+    {
+        TalkerID = "GP";
+        TimeOfReading = null;
+        TrueHeading = 0m;
+        MagneticHeading = 0m;
+        Knots = 0m;
+        Kph = 0m;
+    }
+
+    /// <summary>
+    /// Returns a formatted string representing the <see cref="CourseOverGround"/> struct.
+    /// </summary>
+    /// <returns>A formatted string representing the <see cref="CourseOverGround"/> struct.</returns>
     public override string ToString()
     {
-        StringBuilder outString = new StringBuilder();
+        StringBuilder outString = new();
 
         outString.Append("CourseOverGround: {\r\n");
         outString.Append($"\tTalker ID: {TalkerID}, talker name: {TalkerSystemName}\r\n");
@@ -75,5 +87,4 @@ public class CourseOverGround : IGnssResult
 
         return outString.ToString();
     }
-
 }

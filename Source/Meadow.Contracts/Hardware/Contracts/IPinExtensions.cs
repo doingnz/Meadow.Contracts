@@ -71,7 +71,7 @@ public static class IPinExtensions
             return controller.CreateDigitalInterruptPort(pin, interruptMode, resistorMode, debounceDuration, glitchDuration);
         }
 
-        throw new ArgumentException("Pin is not digital input capable");
+        throw new ArgumentException("Pin is not interrupt capable");
     }
 
     /// <summary>

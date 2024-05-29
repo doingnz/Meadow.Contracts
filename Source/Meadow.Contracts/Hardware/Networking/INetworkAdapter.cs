@@ -4,6 +4,12 @@ using System.Net.NetworkInformation;
 namespace Meadow.Hardware;
 
 /// <summary>
+/// Delegate containing information about a change in network state event
+/// </summary>
+/// <param name="sender"></param>
+public delegate void NetworkStateHandler(INetworkAdapter sender);
+
+/// <summary>
 /// Delegate containing information about a network connection event
 /// </summary>
 /// <param name="sender"></param>
@@ -30,6 +36,11 @@ public delegate void NetworkErrorHandler(INetworkAdapter sender, NetworkErrorEve
 public interface INetworkAdapter
 {
     /// <summary>
+    /// Event raised when a network is connecting
+    /// </summary>
+    event NetworkStateHandler NetworkConnecting;
+
+    /// <summary>
     /// Event raised when a network is connected
     /// </summary>
     event NetworkConnectionHandler NetworkConnected;
@@ -38,6 +49,11 @@ public interface INetworkAdapter
     /// Event raised when a network is disconnected
     /// </summary>
     event NetworkDisconnectionHandler NetworkDisconnected;
+
+    /// <summary>
+    /// Event raised when a auto-reconnecting to a network has terminaled
+    /// </summary>
+    event NetworkStateHandler NetworkConnectFailed;
 
     /// <summary>
     /// Event raised on an unexpected network error.
@@ -77,5 +93,5 @@ public interface INetworkAdapter
     /// <summary>
     /// DNS Addresses of the network adapter.
     /// </summary>
-    IPAddressCollection DnsAddresses{ get; }
+    IPAddressCollection DnsAddresses { get; }
 }
