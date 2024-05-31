@@ -1,8 +1,15 @@
 ﻿using Meadow.Hardware;
-using System;
 using System.Collections.Generic;
 
 namespace Meadow;
+
+/// <summary>
+/// Represents a handler function to process captured Meadow system errors
+/// </summary>
+/// <param name="error">Information about the captured error</param>
+/// <param name="recommendReset">Indicates if the OS or core believes the device should be reset due to this error</param>
+/// <param name="forceReset">Setting this to true will cause the device to reset after returning from the handler</param>
+public delegate void MeadowSystemErrorHandler(MeadowSystemErrorInfo error, bool recommendReset, out bool forceReset);
 
 /// <summary>
 /// An interface that encapsulates all of the data related to platform reliability
@@ -12,7 +19,7 @@ public interface IReliabilityService
     /// <summary>
     /// This event is raised in the event that an exception or error occurs outside of the managed stack, such as with a coprocessor
     /// </summary>
-    public event EventHandler<MeadowSystemErrorInfo>? MeadowSystemError;
+    public event MeadowSystemErrorHandler MeadowSystemError;
 
     /// <summary>
     /// Returns true is the last device boot followed a crash
