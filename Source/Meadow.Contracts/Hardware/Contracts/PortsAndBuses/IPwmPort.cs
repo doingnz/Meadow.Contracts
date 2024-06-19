@@ -1,4 +1,5 @@
 ﻿using Meadow.Units;
+using System;
 
 namespace Meadow.Hardware
 {
@@ -25,7 +26,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Duration of pulse
         /// </summary>
-        float Duration { get; set; }
+        TimeSpan Duration { get; set; }
 
         /// <summary>
         /// Period of pulse
@@ -51,29 +52,5 @@ namespace Meadow.Hardware
         /// Is running
         /// </summary>
         bool State { get; }
-
-        /// <summary>
-        /// Timescale for time calculations (will be removed in future revisions)
-        /// </summary>
-        TimeScale TimeScale { get; set; }
-    }
-
-    /// <summary>
-    /// Timescale enum
-    /// </summary>
-    public enum TimeScale
-    {
-        /// <summary>
-        /// Seconds
-        /// </summary>
-        Seconds = 1,
-        /// <summary>
-        /// Milliseconds
-        /// </summary>
-        Milliseconds = 1000,
-        /// <summary>
-        /// Microseconds
-        /// </summary>
-        Microseconds = 1000000
     }
 }
