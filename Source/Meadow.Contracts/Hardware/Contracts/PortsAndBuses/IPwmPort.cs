@@ -31,10 +31,10 @@ namespace Meadow.Hardware
         /// <summary>
         /// Period of pulse
         /// </summary>
-        double Period { get; set; }
+        TimeSpan Period { get; set; }
 
         /// <summary>
-        /// Duty cycle 
+        /// Duty cycle (from 1 to 1.0)
         /// </summary>
         double DutyCycle { get; set; }
 
