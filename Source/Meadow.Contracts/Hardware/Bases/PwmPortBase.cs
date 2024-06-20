@@ -47,7 +47,7 @@ public abstract class PwmPortBase : DigitalPortBase, IPwmPort
     /// <summary>
     /// Gets or sets the duty cycle of the PWM signal.
     /// </summary>
-    public abstract float DutyCycle { get; set; }
+    public abstract double DutyCycle { get; set; }
 
     /// <summary>
     /// Gets or sets the frequency of the PWM signal.
@@ -62,7 +62,7 @@ public abstract class PwmPortBase : DigitalPortBase, IPwmPort
     /// <summary>
     /// Gets or sets the period of the PWM signal.
     /// </summary>
-    public abstract float Period { get; set; }
+    public abstract double Period { get; set; }
 
     /// <summary>
     /// Gets the state of the PWM signal.
