@@ -1,5 +1,4 @@
 ﻿using Meadow.Units;
-using System.Threading.Tasks;
 
 namespace Meadow.Peripherals.Servos;
 
@@ -13,10 +12,20 @@ public interface IAngularServo : IServo
     /// </summary>
     /// <param name="angle">The target angle to rotate to.</param>
     /// <returns>A task that represents the asynchronous rotate operation.</returns>
-    Task RotateTo(Angle angle);
+    void RotateTo(Angle angle);
 
     /// <summary>
     /// Gets the current angle of the servo.
     /// </summary>
-    Angle? Angle { get; }
+    Angle Angle { get; }
+
+    /// <summary>
+    /// Gets the minimum angle that the servo can rotate to.
+    /// </summary>
+    Angle MinimumAngle { get; }
+
+    /// <summary>
+    /// Gets the maximum angle that the servo can rotate to.
+    /// </summary>
+    Angle MaximumAngle { get; }
 }
