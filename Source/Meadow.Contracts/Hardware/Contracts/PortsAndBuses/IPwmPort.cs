@@ -1,5 +1,4 @@
 ﻿using Meadow.Units;
-using System;
 
 namespace Meadow.Hardware
 {
@@ -26,12 +25,12 @@ namespace Meadow.Hardware
         /// <summary>
         /// Duration of pulse
         /// </summary>
-        TimeSpan Duration { get; set; }
+        TimePeriod Duration { get; set; }
 
         /// <summary>
         /// Period of pulse
         /// </summary>
-        TimeSpan Period { get; set; }
+        TimePeriod Period { get; set; }
 
         /// <summary>
         /// Duty cycle (from 1 to 1.0)

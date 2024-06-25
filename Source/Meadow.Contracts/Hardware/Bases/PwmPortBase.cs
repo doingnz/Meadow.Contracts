@@ -57,12 +57,12 @@ public abstract class PwmPortBase : DigitalPortBase, IPwmPort
     /// <summary>
     /// Gets or sets the duration of the PWM pulse.
     /// </summary>
-    public abstract TimeSpan Duration { get; set; }
+    public abstract TimePeriod Duration { get; set; }
 
     /// <summary>
     /// Gets or sets the period of the PWM signal.
     /// </summary>
-    public abstract TimeSpan Period { get; set; }
+    public abstract TimePeriod Period { get; set; }
 
     /// <summary>
     /// Gets the state of the PWM signal.
