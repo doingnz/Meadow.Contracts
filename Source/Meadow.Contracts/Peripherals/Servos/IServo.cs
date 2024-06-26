@@ -1,4 +1,4 @@
-using System;
+using Meadow.Units;
 
 namespace Meadow.Peripherals.Servos;
 
@@ -11,7 +11,7 @@ public interface IServo
     /// Gets or sets the trim offset for the servo.
     /// The trim offset is used to adjust the neutral position of the servo.
     /// </summary>
-    TimeSpan TrimOffset { get; set; }
+    TimePeriod TrimOffset { get; set; }
 
     /// <summary>
     /// Sets the servo to its neutral position.
