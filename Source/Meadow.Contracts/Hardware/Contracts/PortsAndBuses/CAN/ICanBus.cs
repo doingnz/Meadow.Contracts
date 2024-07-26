@@ -33,6 +33,11 @@ public enum CanBitrate
     Can_40kbps,
 
     /// <summary>
+    /// 47 kbps CAN bitrate.
+    /// </summary>
+    Can_47kbps,
+
+    /// <summary>
     /// 50 kbps CAN bitrate.
     /// </summary>
     Can_50kbps,
@@ -76,6 +81,11 @@ public enum CanBitrate
     /// 500 kbps CAN bitrate.
     /// </summary>
     Can_500kbps,
+
+    /// <summary>
+    /// 800 kbps CAN bitrate.
+    /// </summary>
+    Can_800kbps,
 
     /// <summary>
     /// 1 Mbps CAN bitrate.

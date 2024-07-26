@@ -11,5 +11,5 @@ public interface ICanController
     /// <param name="busNumber">The bus number</param>
     /// <param name="bitrate">The bus bit rate</param>
     /// <returns>An instance of an <see cref="ISpiBus"/></returns>
-    ICanBus CreateCanBus(int busNumber, CanBitrate bitrate);
+    ICanBus CreateCanBus(CanBitrate bitrate, int busNumber);
 }
