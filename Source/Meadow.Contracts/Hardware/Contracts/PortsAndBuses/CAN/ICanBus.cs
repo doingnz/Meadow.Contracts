@@ -31,14 +31,7 @@ public interface ICanBus
     ICanFrame? ReadFrame();
 
     /// <summary>
-    /// Sets the CAN filter.
+    /// The collection of message acceptance filters for the bus
     /// </summary>
-    /// <param name="filter">The filter value.</param>
-    void SetFilter(int filter);
-
-    /// <summary>
-    /// Sets the CAN mask.
-    /// </summary>
-    /// <param name="filter">The mask value.</param>
-    void SetMask(int filter);
+    CanAcceptanceFilterCollection AcceptanceFilters { get; }
 }

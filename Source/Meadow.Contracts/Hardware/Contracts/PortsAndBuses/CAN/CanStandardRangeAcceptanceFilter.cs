@@ -1,0 +1,28 @@
+﻿namespace Meadow.Hardware;
+
+/// <summary>
+/// Represents a CAN standard range acceptance filter.
+/// </summary>
+public class CanStandardRangeAcceptanceFilter : CanAcceptanceFilter
+{
+    /// <summary>
+    /// Gets the first accepted identifier in the range.
+    /// </summary>
+    public short FirstAcceptID { get; }
+
+    /// <summary>
+    /// Gets the last accepted identifier in the range.
+    /// </summary>
+    public short LastAcceptID { get; }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CanStandardRangeAcceptanceFilter"/> class with the specified range of accepted identifiers.
+    /// </summary>
+    /// <param name="firstAcceptID">The first accepted identifier in the range.</param>
+    /// <param name="lastAcceptID">The last accepted identifier in the range.</param>
+    public CanStandardRangeAcceptanceFilter(short firstAcceptID, short lastAcceptID)
+    {
+        FirstAcceptID = (short)(firstAcceptID & 0x7ff);
+        LastAcceptID = (short)(lastAcceptID & 0x7ff);
+    }
+}
