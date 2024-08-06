@@ -67,7 +67,7 @@ public struct Color
     private float brightness;
 
     /// <summary>
-    /// Hue of current color (0-360.0)
+    /// Hue of current color (0-360)
     /// </summary>
     public float Hue
     {
@@ -82,7 +82,7 @@ public struct Color
     }
 
     /// <summary>
-    /// Saturation of color (0-1.0)
+    /// Saturation of color (0-1)
     /// </summary>
     public float Saturation
     {
@@ -97,7 +97,7 @@ public struct Color
     }
 
     /// <summary>
-    /// Brightness of color (0-1.0)
+    /// Brightness of color (0-1)
     /// </summary>
     public float Brightness
     {
@@ -114,10 +114,10 @@ public struct Color
     /// <summary>
     /// Create a color struct
     /// </summary>
-    /// <param name="red">red component of color</param>
-    /// <param name="green">green component of color</param>
-    /// <param name="blue">blue component of color</param>
-    /// <param name="alpha">transparency of color</param>
+    /// <param name="red">red component of color (0-255)</param>
+    /// <param name="green">green component of color (0-255)</param>
+    /// <param name="blue">blue component of color (0-255)</param>
+    /// <param name="alpha">transparency of color (0-255)</param>
     public Color(byte red, byte green, byte blue, byte alpha = 255)
     {
         R = red;
@@ -131,9 +131,9 @@ public struct Color
     /// <summary>
     /// Create a color struct - convenience ctor for floats - prefer byte version
     /// </summary>
-    /// <param name="red">red component of color</param>
-    /// <param name="green">green component of color</param>
-    /// <param name="blue">blue component of color</param>
+    /// <param name="red">red component of color (0-1)</param>
+    /// <param name="green">green component of color (0-1)</param>
+    /// <param name="blue">blue component of color (0-1)</param>
     public Color(float red, float green, float blue) :
         this((byte)(red * 255), (byte)(green * 255), (byte)(blue * 255), 255)
     {
@@ -142,10 +142,10 @@ public struct Color
     /// <summary>
     /// Create a color struct
     /// </summary>
-    /// <param name="hue">hue of color</param>
-    /// <param name="saturation">saturation of color</param>
-    /// <param name="brightness">brightness of color</param>
-    /// <param name="alpha">alpha (transparency) of color</param>
+    /// <param name="hue">hue of color (0-1)</param>
+    /// <param name="saturation">saturation of color (0-1)</param>
+    /// <param name="brightness">brightness of color (0-1)</param>
+    /// <param name="alpha">alpha (transparency) of color (0-255)</param>
     public Color(float hue, float saturation, float brightness, byte alpha = 255)
     {
         HslToRgb(hue * 360, saturation, brightness, out float red, out float green, out float blue);
@@ -163,7 +163,7 @@ public struct Color
     /// <summary>
     /// Create a new color struct from current color with new brightness
     /// </summary>
-    /// <param name="brightness">brightness of new color (0-1.0)</param>
+    /// <param name="brightness">brightness of new color (0-1)</param>
     /// <returns>new color object</returns>
     public Color WithBrightness(float brightness)
     {
@@ -173,7 +173,7 @@ public struct Color
     /// <summary>
     /// Create a new color struct from current color with new hue
     /// </summary>
-    /// <param name="hue">hue of new color (0-360.0)</param>
+    /// <param name="hue">hue of new color (0-360)</param>
     /// <returns>new color object</returns>
     public Color WithHue(float hue)
     {
@@ -183,7 +183,7 @@ public struct Color
     /// <summary>
     /// Create a new color structs from current color with new saturation
     /// </summary>
-    /// <param name="saturation">saturation of new color (0-1.0)</param>
+    /// <param name="saturation">saturation of new color (0-1)</param>
     /// <returns>new color object</returns>
     public Color WithSaturation(float saturation)
     {
@@ -449,14 +449,14 @@ public struct Color
     /// <returns>new color object</returns>
     public static Color FromHsba(float h, float s, float b, float a = 1.0f)
     {
-        return new Color(h, s, b, (byte)(a * 255));
+        return new Color(h / 360f, s, b, (byte)(a * 255));
     }
 
     /// <summary>
     /// Takes Hue, Saturation and Value and returns a Color object
     /// </summary>
-    /// <param name="alpha"></param>
-    /// <param name="hue"></param>
+    /// <param name="alpha">alpha of color (0-1)</param>
+    /// <param name="hue">hue of color (0-360)</param>
     /// <param name="saturation"></param>
     /// <param name="value"></param>
     /// <returns>A Color object</returns>
@@ -470,7 +470,7 @@ public struct Color
     /// <summary>
     /// HSL to RGB 
     /// </summary>
-    /// <param name="hue">Hue in degrees (0-359°)</param>
+    /// <param name="hue">Hue in degrees (0-360)</param>
     /// <param name="saturation">Saturation</param>
     /// <param name="lightness">Brightness value</param>
     /// <param name="r">The red component (0-1)</param>
@@ -557,9 +557,9 @@ public struct Color
     /// <summary>
     /// HSV to RGB 
     /// </summary>
-    /// <param name="hue">Hue in degrees (0-359°)</param>
-    /// <param name="saturation">Saturation</param>
-    /// <param name="brightValue">Brightness value</param>
+    /// <param name="hue">Hue in degrees (0-360)</param>
+    /// <param name="saturation">Saturation (0-1)</param>
+    /// <param name="brightValue">Brightness (0-1)</param>
     /// <param name="r">The red component (0-1)</param>
     /// <param name="g">The green component (0-1)</param>
     /// <param name="b">The blue component (0-1)</param>
