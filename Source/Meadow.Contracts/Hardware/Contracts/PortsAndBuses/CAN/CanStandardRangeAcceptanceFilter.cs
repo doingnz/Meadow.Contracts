@@ -6,12 +6,12 @@
 public class CanStandardRangeAcceptanceFilter : CanAcceptanceFilter
 {
     /// <summary>
-    /// Gets the first accepted identifier in the range.
+    /// Gets the first (inclusive) accepted identifier in the range.
     /// </summary>
     public short FirstAcceptID { get; }
 
     /// <summary>
-    /// Gets the last accepted identifier in the range.
+    /// Gets the last (inclusive) accepted identifier in the range.
     /// </summary>
     public short LastAcceptID { get; }
 
