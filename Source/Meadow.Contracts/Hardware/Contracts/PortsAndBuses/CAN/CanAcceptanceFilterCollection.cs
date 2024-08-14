@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Meadow.Hardware;
 
@@ -37,20 +38,41 @@ public sealed class CanAcceptanceFilterCollection
     /// <returns>The filter at the specified index.</returns>
     public CanAcceptanceFilter this[int index]
     {
-        get => _filters[index];
+        get
+        {
+            lock (_filters)
+            {
+                return _filters[index];
+            }
+        }
     }
 
     /// <summary>
     /// Gets the count of filters in the collection
     /// </summary>
-    public int Count => _filters.Count;
+    public int Count
+    {
+        get
+        {
+            lock (_filters)
+            {
+                return _filters.Count;
+            }
+        }
+    }
 
     /// <summary>
     /// Removes all filters from the collection.
     /// </summary>
     public void Clear()
     {
-        throw new NotImplementedException();
+        lock (_filters)
+        {
+            foreach (var f in _filters.ToList())
+            {
+                Remove(f);
+            }
+        }
     }
 
     /// <summary>
@@ -59,12 +81,16 @@ public sealed class CanAcceptanceFilterCollection
     /// <param name="filter">The filter to add.</param>
     public void Add(CanAcceptanceFilter filter)
     {
-        if (_filters.Count >= MaxFilterCount)
+        lock (_filters)
         {
-            throw new ArgumentOutOfRangeException($"Maximum filter count of {MaxFilterCount} has been reached");
+            if (_filters.Count >= MaxFilterCount)
+            {
+                throw new ArgumentOutOfRangeException($"Maximum filter count of {MaxFilterCount} has been reached");
+            }
+
+            _filters.Add(filter);
         }
 
-        _filters.Add(filter);
         CollectionChanged?.Invoke(this, new(CollectionChangeAction.Add, filter));
     }
 
@@ -74,6 +100,10 @@ public sealed class CanAcceptanceFilterCollection
     /// <param name="filter">The filter to remove.</param>
     public void Remove(CanAcceptanceFilter filter)
     {
-        throw new NotImplementedException();
+        lock (_filters)
+        {
+            _filters.Remove(filter);
+        }
+        CollectionChanged?.Invoke(this, new(CollectionChangeAction.Remove, filter));
     }
 }
