@@ -8,6 +8,11 @@ namespace Meadow.Hardware;
 public interface ICanBus
 {
     /// <summary>
+    /// Gets or sets the bus bit rate
+    /// </summary>
+    CanBitrate BitRate { get; set; }
+
+    /// <summary>
     /// Occurs when a CAN frame is received.
     /// </summary>
     event EventHandler<ICanFrame>? FrameReceived;
@@ -31,14 +36,12 @@ public interface ICanBus
     ICanFrame? ReadFrame();
 
     /// <summary>
-    /// Sets the CAN filter.
+    /// Clears any data currently in the bus receive buffers
     /// </summary>
-    /// <param name="filter">The filter value.</param>
-    void SetFilter(int filter);
+    void ClearReceiveBuffers();
 
     /// <summary>
-    /// Sets the CAN mask.
+    /// The collection of message acceptance filters for the bus
     /// </summary>
-    /// <param name="filter">The mask value.</param>
-    void SetMask(int filter);
+    CanAcceptanceFilterCollection AcceptanceFilters { get; }
 }
