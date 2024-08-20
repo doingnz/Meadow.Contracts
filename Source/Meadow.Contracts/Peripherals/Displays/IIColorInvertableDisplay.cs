@@ -1,9 +1,9 @@
 ﻿namespace Meadow.Peripherals.Displays;
 
 /// <summary>
-/// Represents a display that supports rotation in 90 degree increments
+/// Represents a display that supports inverting colors
 /// </summary>
-public interface IColorInvertableDisplay
+public interface IColorInvertableDisplay : IPixelDisplay
 {
     /// <summary>
     /// Invert the display colors
