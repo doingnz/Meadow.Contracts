@@ -71,6 +71,7 @@ namespace Meadow.Hardware
         /// Creates an IDigitalSignalAnalyzer on the specified pin
         /// </summary>
         /// <param name="pin">The pin on which to create the analyzer.</param>
-        public IDigitalSignalAnalyzer CreateDigitalSignalAnalyzer(IPin pin);
+        /// <param name="captureDutyCycle">Whether or not to capture duty cycle. Not capturing it is more efficient and allows faster frequency capture</param>
+        public IDigitalSignalAnalyzer CreateDigitalSignalAnalyzer(IPin pin, bool captureDutyCycle);
     }
 }
