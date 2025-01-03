@@ -17,6 +17,7 @@ public class SoftDigitalSignalAnalyzer : IDigitalSignalAnalyzer, IDisposable
     private int _rising;
     private int _falling;
     private double _duty;
+    private ulong _count;
 
     /// <summary>
     /// Returns true if the analyzer has been disposed
@@ -67,6 +68,7 @@ public class SoftDigitalSignalAnalyzer : IDigitalSignalAnalyzer, IDisposable
                 }
                 break;
             case true:
+                _count++;
                 var now = Environment.TickCount;
                 _mostRecentPeriod = Math.Abs(now - _rising);
                 _periodQueue.Append(_mostRecentPeriod);
@@ -79,6 +81,12 @@ public class SoftDigitalSignalAnalyzer : IDigitalSignalAnalyzer, IDisposable
 
                 break;
         }
+    }
+
+    /// <inheritdoc/>
+    public ulong GetCount()
+    {
+        return _count;
     }
 
     /// <inheritdoc/>
