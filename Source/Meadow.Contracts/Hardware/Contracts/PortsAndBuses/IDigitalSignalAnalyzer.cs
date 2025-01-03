@@ -8,6 +8,11 @@ namespace Meadow.Hardware;
 public interface IDigitalSignalAnalyzer
 {
     /// <summary>
+    /// Gets the current sensor count
+    /// </summary>
+    public ulong GetCount();
+
+    /// <summary>
     /// Takes an instantaneous measurement of the signal frequency.
     /// </summary>
     /// <returns>The current frequency of the digital signal.</returns>
