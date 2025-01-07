@@ -8,14 +8,19 @@ namespace Meadow.Hardware;
 public interface ICanBus
 {
     /// <summary>
+    /// Raised when a CAN frame is received.
+    /// </summary>
+    event EventHandler<ICanFrame>? FrameReceived;
+
+    /// <summary>
+    /// Raised when a bus error occurs
+    /// </summary>
+    event EventHandler<CanErrorInfo>? BusError;
+
+    /// <summary>
     /// Gets or sets the bus bit rate
     /// </summary>
     CanBitrate BitRate { get; set; }
-
-    /// <summary>
-    /// Occurs when a CAN frame is received.
-    /// </summary>
-    event EventHandler<ICanFrame>? FrameReceived;
 
     /// <summary>
     /// Writes a CAN frame to the specified buffer.
