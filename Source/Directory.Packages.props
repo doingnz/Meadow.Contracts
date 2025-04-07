@@ -28,6 +28,8 @@
         <PackageVersion Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.10" />
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
         <PackageVersion Include="Microsoft.Win32.Registry" Version="5.0.0" />
+        <PackageVersion Include="MSTest.TestAdapter" Version="2.1.1" />
+        <PackageVersion Include="MSTest.TestFramework" Version="2.1.1" />
         <PackageVersion Include="NetEscapades.Configuration.Yaml" Version="3.1.0" />
         <PackageVersion Include="Peak.PCANBasic.NET" Version="4.10.0.964" />
         <PackageVersion Include="Silk.NET" Version="2.22.0" />
